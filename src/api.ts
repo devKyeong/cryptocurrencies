@@ -22,7 +22,7 @@ export function fetchCoinPrice(coinId: string) {
 export function fetchCoinHistory(coinId: string) {
   //const start = Math.ceil(Date.now() / 1000) - 60 * 60 * 24;
   //`${BASE_URL}/coins/${coinId}/ohlcv/today?quotes=KRW`
-  return fetch(
-    `https://ohlcv-api.nomadcoders.workers.dev?coinId=${coinId}`
-  ).then((response) => response.json());
+  return fetch(`${SUB_URL}?coinId=${coinId}`).then((response) =>
+    response.json()
+  );
 }
