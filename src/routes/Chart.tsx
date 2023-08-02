@@ -24,6 +24,9 @@ function Chart({ coinId, coinName }: ChartProps) {
     () => fetchCoinHistory(coinId)
   );
 
+  let chartData = data ?? [];
+  if ("error" in chartData) chartData = [];
+
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
@@ -32,13 +35,16 @@ function Chart({ coinId, coinName }: ChartProps) {
         {
           type: "candlestick",
           data:
-            data?.map((price) => ({
+            chartData?.map((price) => ({
               x: new Date(price.time_close * 1000),
               y: [price.open, price.high, price.low, price.close],
             })) || [],
         },
       ]}
       options={{
+        noData: {
+          text: "데이터가 없습니다.",
+        },
         theme: {
           mode: "dark",
         },
