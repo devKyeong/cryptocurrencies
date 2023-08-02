@@ -1,7 +1,7 @@
 {
   "name": "react-masterclass",
   "version": "0.1.0",
-  "homepage": "https://devkyeong.github.io/react-masterclass/",
+  "homepage": "https://devkyeong.github.io/react-masterclass",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
