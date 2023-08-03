@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 import { fetchCoinDetail, fetchCoinPrice } from "../api";
 import Chart from "./Chart";
 import Price from "./Price";
+import Header from "../layouts/Header";
 
 interface RouteParams {
   coinId: string;
@@ -108,11 +109,13 @@ function Coin() {
       <Nav>
         <Link to={{ pathname: "/" }}>&lt; Home</Link>
       </Nav>
-      <Header>
+
+      <Header title={state?.name || detail?.name || "Loading..."} />
+      {/* <Header>
         <Title>
           {state?.name || detail?.name || <Loader>Loading...</Loader>}
         </Title>
-      </Header>
+      </Header> */}
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
@@ -185,12 +188,12 @@ const Container = styled.main`
   margin: 0 auto;
 `;
 
-const Header = styled.header`
-  height: 25vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const Header = styled.header`
+//   height: 25vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const Nav = styled.nav`
   padding: 20px 0;
@@ -206,7 +209,7 @@ const OverView = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: ${({ theme: { colors } }) => colors.box};
   padding: 10px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -246,9 +249,9 @@ const Tab = styled("li")<{ $active: boolean }>`
   font-weight: 400;
 
   background-color: ${({ $active, theme: { colors } }) =>
-    $active ? colors.text : `rgba(0, 0, 0, 0.4)`};
+    $active ? colors.text : colors.box};
   color: ${({ $active, theme: { colors } }) =>
-    $active ? colors.background : colors.text};
+    $active ? colors.box : colors.text};
 
   border-radius: 15px;
 

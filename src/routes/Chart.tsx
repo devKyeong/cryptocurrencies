@@ -1,6 +1,8 @@
 import ReactApexChart from "react-apexcharts";
 import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../api";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface ChartProps {
   coinId: string;
@@ -24,6 +26,8 @@ function Chart({ coinId, coinName }: ChartProps) {
     () => fetchCoinHistory(coinId)
   );
 
+  const isDark = useRecoilValue(isDarkAtom);
+
   let chartData = data ?? [];
   if ("error" in chartData) chartData = [];
 
@@ -46,7 +50,7 @@ function Chart({ coinId, coinName }: ChartProps) {
           text: "데이터가 없습니다.",
         },
         theme: {
-          mode: "dark",
+          mode: isDark ? "dark" : "light",
         },
         chart: {
           type: "candlestick",

@@ -116,7 +116,7 @@ const OverView = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: ${({ theme: { colors } }) => colors.box};
   padding: 10px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -144,7 +144,7 @@ const TrendingItem = styled.div<{ trendingArrow: number }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: ${({ theme: { colors } }) => colors.box};
   padding: 10px 20px;
   border-radius: 10px;
 
