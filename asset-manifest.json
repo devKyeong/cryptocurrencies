@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/cryptocurrencies/static/js/main.dc50b07c.js",
+    "index.html": "/cryptocurrencies/index.html",
+    "main.dc50b07c.js.map": "/cryptocurrencies/static/js/main.dc50b07c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.dc50b07c.js"
+  ]
+}
